@@ -178,5 +178,5 @@ One thing to note, that download size is not exactly the same because of module 
 
 - HTTP2 offers huge improvements when loading multiple modules in parallel. With HTTP1 loading only 5 in parallel already slows down loading by ~130%.
 - Without latency, when running on localhost, loading 100 modules adds around 10ms to load time.
-- With latency, there is almost no difference if loading 1 big module or loading 100 small modules in parallel, difference is from 1-5%, in some tests it is even faster to load 100 modules in parallel. Loading 200 modules does cause consistently worse performance by ~35% when compared to loading one big module.
-- Depth of dependency does impact performance. Adding one depth level to dependency tree impacts performance 3-15%.
+- With latency, there is almost no difference if loading 1 big module or loading 100 small modules in parallel, difference is from 1-5%, in some tests it is even faster to load 100 modules in parallel. Loading 200 modules does cause consistently worse performance by ~40% when compared to loading one big module.
+- Depth of dependency tree does impact performance. When using CDN, results are more consistent and impact is much lower, up to 5% per each depth level. Without CDN, when there is significant latency, performance can be impacted up to 15% per each depth level.
