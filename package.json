@@ -1,0 +1,28 @@
+{
+  "name": "esm-pref-test",
+  "version": "1.0.0",
+  "description": "This test is simulating loading of 5MB of javascript in multiple different file size configurations",
+  "main": "src/generate.js",
+  "type": "module",
+  "scripts": {
+    "generate": "node ./src/generate.js",
+    "test:localhost:http": "BASE_URL=http://localhost:9080 node ./src/run.js",
+    "test:localhost:http2": "BASE_URL=https://localhost:9443 node ./src/run.js",
+    "test:vercel": "BASE_URL=https://esm-pref-test.vercel.app node ./src/run.js",
+    "test:flyio": "BASE_URL=https://esm-pref-test.fly.dev node ./src/run.js",
+    "serve": "node ./src/http-server",
+    "deploy:vercel": "vercel --prod",
+    "deploy:flyio": "flyctl deploy --config fly.toml --dockerfile Dockerfile",
+    "build": "echo 'Build...'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "glob": "^8.0.3",
+    "http2-express-bridge": "^1.0.7",
+    "mime-types": "^2.1.35",
+    "playwright": "^1.22.2"
+  }
+}
